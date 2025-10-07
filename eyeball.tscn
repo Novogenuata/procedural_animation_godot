@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://bb3x8t5gwp21n"]
+
+[ext_resource type="Texture2D" uid="uid://c7hup2j5bhg0u" path="res://assets/eyeball.png" id="1_v8ur4"]
+
+[node name="eyeball" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.01, 0.01)
+texture = ExtResource("1_v8ur4")
+
+[node name="pupilPosition" type="Marker2D" parent="Sprite2D"]
+position = Vector2(-600, 0)
+scale = Vector2(100, 100)
