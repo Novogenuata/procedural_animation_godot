@@ -1,4 +1,4 @@
-Cute little worm I coded while down with a code. 
+Cute little worm I coded while down with a cold. 
 
 Procedurally animated using a Line2D node
 
