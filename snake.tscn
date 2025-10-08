@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://21ru46aqlc5v"]
+[gd_scene load_steps=10 format=3 uid="uid://21ru46aqlc5v"]
 
 [ext_resource type="Script" uid="uid://c3756du4jj3bi" path="res://line_2d.gd" id="1_baghe"]
 [ext_resource type="Shader" uid="uid://ml1qvhqt37jy" path="res://s.gdshader" id="1_gxkgb"]
+[ext_resource type="Texture2D" uid="uid://b0scvdrw71dba" path="res://assets/rock.png" id="3_2x2sd"]
+[ext_resource type="Shader" uid="uid://l0fyfht6pqju" path="res://background.gdshader" id="3_olj5u"]
 
 [sub_resource type="Curve" id="Curve_baghe"]
 _data = [Vector2(0, 0.23595512), 0.0, 0.0, 0, 0, Vector2(0.08152175, 0.75280905), 0.0, 0.0, 0, 0, Vector2(0.30978262, 1), 0.0, 0.0, 0, 0, Vector2(0.36413044, 0.6629214), 0.0, 0.0, 0, 0, Vector2(0.54891306, 0.6741574), 0.0, 0.0, 0, 0, Vector2(0.79347825, 0.3820225), 0.0, 0.0, 0, 0, Vector2(1, 0.4044944), 0.0, 0.0, 0, 0]
@@ -33,6 +35,25 @@ shader_parameter/cloud_color_shiftx = 0.0
 shader_parameter/cloud_color_shifty = 0.0
 shader_parameter/background_color = Color(0.792807, 0.20125815, 0.7193339, 1)
 
+[sub_resource type="Gradient" id="Gradient_dw1s1"]
+interpolation_color_space = 2
+offsets = PackedFloat32Array(0, 0.5508475, 1)
+colors = PackedColorArray(0.1974585, 0.62278277, 0.40650415, 1, 0.08041049, 0.22924915, 0.17990944, 1, 0.17844883, 0.11883857, 0.123601906, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ej4wj"]
+gradient = SubResource("Gradient_dw1s1")
+width = 71
+height = 68
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xox5r"]
+shader = ExtResource("3_olj5u")
+shader_parameter/gradient = SubResource("GradientTexture2D_ej4wj")
+shader_parameter/circle_color = Color(18.77719, 13.882009, 16.909813, 0.1882353)
+shader_parameter/circle_multiplier = 15.0
+shader_parameter/speed = 1.0
+shader_parameter/direction = Vector2(9, -50)
+shader_parameter/rotation = Transform2D(1, -1, 1, 1, 0, 0)
+
 [node name="Node2D" type="Node2D"]
 
 [node name="shadowsnake" type="Line2D" parent="."]
@@ -63,3 +84,12 @@ sharp_limit = 300.0
 round_precision = 21
 antialiased = true
 script = ExtResource("1_baghe")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="Rock" type="Sprite2D" parent="."]
+z_index = -100
+material = SubResource("ShaderMaterial_xox5r")
+position = Vector2(579, 338.00003)
+scale = Vector2(0.5547184, 0.47999936)
+texture = ExtResource("3_2x2sd")
